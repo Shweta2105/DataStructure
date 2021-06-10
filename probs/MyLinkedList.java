@@ -62,6 +62,31 @@ public class MyLinkedList {
 		return temp;
 		
 	}
-	
 
+	public void delete() {
+		if(this.head != null) {
+		    
+		    //1. if head in not null and next of head
+		    if(this.head.getNext() == null) {
+		      this.head = null;
+		    } else {
+		      
+		      //2. Else, traverse to the second last 
+		      //   element of the list
+		      INode temp;
+		      temp = this.head;
+		      while(temp.getNext().getNext() != null)
+		        temp = temp.getNext();
+		      
+		      //3. Change the next of the second 
+		      //   last node to null and delete the
+		      //   last node
+		      INode lastNode = temp.getNext();
+		      temp.setNext(null); 
+		      lastNode = null;
+		    }
+		  }
+    } 
+		
 }
+

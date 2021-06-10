@@ -67,7 +67,7 @@ public class MyLinkedListTest {
 	}
 	@Test
 	//method to delete first element from the list
-	public void deleteAFirstNumberFromList() {
+	public void popAFirstNumberFromList() {
 		System.out.println("Deleting element from start");
 		MyNode<Integer> MyFirstnode = new MyNode<>( 56);
 		MyNode<Integer> MySecondnode = new MyNode<>( 30);
@@ -85,5 +85,26 @@ public class MyLinkedListTest {
 				mylinkedList.tail.equals(MyFirstnode);//test condition
 		Assert.assertTrue(result);
 	}
+	@Test
+	public void deleteAFirstNumberFromList() {
+		System.out.println("Deleting element from ");
+		MyNode<Integer> MyFirstnode = new MyNode<>( 56);
+		MyNode<Integer> MySecondnode = new MyNode<>( 30);
+		MyNode<Integer> MyThirdnode = new MyNode<>( 70);
+		MyLinkedList mylinkedList = new MyLinkedList();
+		mylinkedList.add(MyThirdnode); //add element at top
+		mylinkedList.add(MySecondnode);
+		mylinkedList.add(MyFirstnode);
+		mylinkedList.printMyNodes();//print
+		mylinkedList.delete();			//delete the last element
+		mylinkedList.printMyNodes();
+		
+		boolean result = mylinkedList.head.equals(MyFirstnode) &&
+				mylinkedList.head.getNext().equals(MySecondnode) &&
+				mylinkedList.tail.equals(MyThirdnode);//test condition
+		Assert.assertTrue(result);
+	}
+	
+	
 }
 
