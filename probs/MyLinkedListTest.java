@@ -105,6 +105,31 @@ public class MyLinkedListTest {
 		Assert.assertTrue(result);
 	}
 	
+	@Test
+	//method to search element from list
+	public void searchNumberFromLinkedListAddedToBottom() {
+		System.out.println("Appending element to bottom");
+		MyNode<Integer> MyFirstnode = new MyNode<>( 56);
+		MyNode<Integer> MySecondnode = new MyNode<>( 30);
+		MyNode<Integer> MyThirdnode = new MyNode<>( 70);
+		MyLinkedList<Integer> myLinkedList = new MyLinkedList<Integer>();
+		myLinkedList.append(MyFirstnode); //calling append function
+		myLinkedList.append(MySecondnode);
+		myLinkedList.append(MyThirdnode);
+		myLinkedList.printMyNodes();
+		int key =30;
+		if(myLinkedList.search(key)) {
+			System.out.println(key+" found!!");
+		}else
+		{ System.out.println("Not found");}
+	
+		boolean result = myLinkedList.head.equals(MyFirstnode) &&
+				myLinkedList.head.getNext().equals(MySecondnode) &&
+				myLinkedList.tail.equals(MyThirdnode);
+		Assert.assertTrue(result);
+		
+	}
+	
 	
 }
 

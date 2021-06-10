@@ -1,7 +1,7 @@
 package DataStructure.probs;
 
 
-public class MyLinkedList {
+public class MyLinkedList<K> {
 	INode head;
 	INode tail;
 
@@ -86,7 +86,26 @@ public class MyLinkedList {
 		      lastNode = null;
 		    }
 		  }
-    } 
+    }
+
+	
+
+	public boolean search(K i) {
+		if (head == null) {
+			return false;
+		}
+
+		INode<K> Node = head;
+		while (Node != null) {
+			if (Node.getKey() == i) {
+				return true;
+			}
+			Node = Node.getNext();
+		}
+		return false;
 		
+	}
+
+	
 }
 
