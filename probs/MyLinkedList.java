@@ -106,18 +106,7 @@ public class MyLinkedList<K> {
 		
 	}
 
-	public void insertAt(INode key, int position) {
-
-		INode newNode = null;
-		newNode.setKey(key);
-		newNode.setNext(null);
-		INode currentNode = head;
-		for (int i = 0; i < position - 1; i++) {
-			currentNode = currentNode.getNext();
-		}
-		newNode.setNext(currentNode.getNext());
-		currentNode.setNext(key);
-	}
+	
 	
 }
 
