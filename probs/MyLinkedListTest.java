@@ -47,6 +47,7 @@ public class MyLinkedListTest {
 		Assert.assertTrue(result);
 		
 	}
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Test
 	//method to insert element in between 2 elements
 	public void insertANumberBetween2NumbersInLinkedList() {
@@ -58,7 +59,7 @@ public class MyLinkedListTest {
 		mylinkedList.add(MyFirstnode); //adding first element at top
 		mylinkedList.append(MyThirdnode); //appending other element
 		mylinkedList.printMyNodes(); //printing
-		mylinkedList.insert(MyFirstnode, MySecondnode);//calling insert method 
+		mylinkedList.insert(MyFirstnode,MySecondnode);//calling insert method 
 		mylinkedList.printMyNodes(); //printing
 		boolean result = mylinkedList.head.equals(MyFirstnode) &&
 				mylinkedList.head.getNext().equals(MySecondnode) &&
@@ -128,6 +129,30 @@ public class MyLinkedListTest {
 				myLinkedList.tail.equals(MyThirdnode);
 		Assert.assertTrue(result);
 		
+	}
+	
+	@Test
+	//method to insert element in between 2 elements
+	public void insertANumberAtAnyPositionBetweenNumbersInLinkedList() {
+		System.out.println("Inserting at position :");
+		MyNode<Integer> MyFirstnode = new MyNode<>( 56);
+		MyNode<Integer> MySecondnode = new MyNode<>( 30);
+		MyNode<Integer> MyThirdnode = new MyNode<>( 70);
+		MyLinkedList<Integer> myLinkedList = new MyLinkedList<Integer>();
+		myLinkedList.append(MyFirstnode); //calling append function
+		myLinkedList.append(MySecondnode);
+		myLinkedList.append(MyThirdnode);
+
+		System.out.println("Original Linked List is:");
+		myLinkedList.printMyNodes();
+		System.out.println();
+
+		int position = 2;
+		MyNode<Integer> nodeKey =new MyNode<>(40);
+
+		System.out.println("Adding a node with Value " + nodeKey + " at position : " + position);
+		myLinkedList.insertAt(nodeKey, position);;
+		myLinkedList.printMyNodes();
 	}
 	
 	
