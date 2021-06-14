@@ -48,6 +48,17 @@ public class Stack {
 		
 	}
 
+	public int pop() {
+		if(isEmpty()) {
+			System.out.println("Stack is empty");
+		return 0;
+		}
+		else {
+			return stk[top--];
+		}
+			
+	}
+
 	
 
 }
