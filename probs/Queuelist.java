@@ -17,6 +17,11 @@ public class Queuelist {
 		mylist.printMyNodes();
 		
 	}
+
+	public void delete() {
+		mylist.pop();
+		
+	}
 	
 	
 
