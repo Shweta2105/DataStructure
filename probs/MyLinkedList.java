@@ -24,7 +24,7 @@ public class MyLinkedList<K> {
 
 	}
 
-	public void append(INode newnode) {
+	public void append(INode<K> newnode) {
 		if (this.head == null) {
 			this.head = newnode;
 		}
@@ -120,19 +120,16 @@ public class MyLinkedList<K> {
 		head = new_node;
 	}
 
-	public boolean search(K i) {
-		if (head == null) {
-			return false;
-		}
-
+	public INode<K> search(K key) {
+		
 		INode<K> Node = head;
-		while (Node != null) {
-			if (Node.getKey() == i) {
-				return true;
+		while (Node != null && Node.getNext() != null) {
+			if (Node.getKey().equals(key)) {
+				return Node;
 			}
 			Node = Node.getNext();
 		}
-		return false;
+		return null;
 
 	}
 
@@ -146,5 +143,12 @@ public class MyLinkedList<K> {
 		}
 		return count;
 	}
+	
+	public String toString() {
+		return "MyLinkedListNodes{"+head+'}';
+		
+	}
+	
+
 
 }
