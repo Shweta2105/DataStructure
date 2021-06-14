@@ -87,7 +87,7 @@ public class MyLinkedListTest {
 		Assert.assertTrue(result);
 	}
 	@Test
-	public void deleteAFirstNumberFromList() {
+	public void deleteAlastNumberFromList() {
 		System.out.println("Deleting element from ");
 		MyNode<Integer> MyFirstnode = new MyNode<>( 56);
 		MyNode<Integer> MySecondnode = new MyNode<>( 30);
@@ -155,9 +155,30 @@ public class MyLinkedListTest {
 				myLinkedList.head.getNext().equals(MyNewnode) &&
 				myLinkedList.tail.equals(MyThirdnode);
 		Assert.assertTrue(result);
-		
 	}
+	@Test
+	public void deleteANumberAtAnyPositionFromList() {
+		System.out.println("Deleting element from any position : ");
+		MyNode<Integer> MyFirstnode = new MyNode<>( 56);
+		MyNode<Integer> MySecondnode = new MyNode<>( 30);
+		MyNode<Integer> MyThirdnode = new MyNode<>( 70);
+		MyNode<Integer> MyNewnode = new MyNode<>( 40);
+		
+		MyLinkedList mylinkedList = new MyLinkedList();
+		mylinkedList.add(MyThirdnode);
+		mylinkedList.add(MyNewnode);  //add element at top
+		mylinkedList.add(MySecondnode);
+		mylinkedList.add(MyFirstnode);
+		mylinkedList.printMyNodes();//print
+		mylinkedList.deleteNode(40);
+		mylinkedList.printMyNodes();
+		
+		boolean result = mylinkedList.head.equals(MyFirstnode) &&
+				mylinkedList.head.getNext().equals(MySecondnode) &&
+				mylinkedList.head.getNext().equals(MyNewnode) &&
+				mylinkedList.tail.equals(MyThirdnode);
+		Assert.assertTrue(result);
 	
-	
+	}
 }
 
