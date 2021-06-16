@@ -1,5 +1,7 @@
 package DataStructure.probs;
 
+import java.util.Scanner;
+
 public class BinarySearchTree {  
 public static class Node{  
         int data;  
@@ -79,20 +81,50 @@ public static class Node{
   
           }  
       }  
+      boolean search(int key)  { 
+          root = search_Recursive(root, key); 
+          if (root!= null)
+              return true;
+          else
+              return false;
+      } 
+     
+      //recursive insert function
+      Node search_Recursive(Node root, int key)  { 
+          // Base Cases: root is null or key is present at root 
+          if (root==null || root.data==key) 
+              return root; 
+          // val is greater than root's key 
+          if (root.data > key) 
+              return search_Recursive(root.left, key); 
+          // val is less than root's key 
+          return search_Recursive(root.right, key); 
+      } 
+  
   
       public static void main(String[] args) {  
   
-          BinarySearchTree bt = new BinarySearchTree();  
+          BinarySearchTree tree = new BinarySearchTree();  
           //Add nodes to the binary tree  
-          bt.insert(56);  
-          bt.insert(30);  
-          bt.insert(70);  
-          
+          tree.insert(56);  
+          tree.insert(30);  
+          tree.insert(70); 
+          tree.insert(11);  
+          tree.insert(16);  
+          tree.insert(40);
+          tree.insert(60);  
+          tree.insert(95);  
+          tree.insert(63);
   
           System.out.println("Binary search tree after insertion:");  
            
-          bt.inorderTraversal(bt.root);  
+          tree.inorderTraversal(tree.root);  
+          boolean ret_val = tree.search (63);
+          System.out.println("\nKey 63 found in BST:" + ret_val );
+          
   
           
-      }  
+      }
+
+
 }
